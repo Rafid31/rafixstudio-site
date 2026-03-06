@@ -1,0 +1,39 @@
+{
+  "name": "rafid-portfolio-cms",
+  "version": "1.0.0",
+  "description": "Rafid \u2014 Graphic Designer Portfolio with Payload CMS",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
+    "generate:importmap": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:importmap"
+  },
+  "dependencies": {
+    "next": "15.4.11",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "payload": "3.79.0",
+    "@payloadcms/next": "3.79.0",
+    "@payloadcms/db-sqlite": "3.79.0",
+    "@payloadcms/richtext-lexical": "3.79.0",
+    "@payloadcms/ui": "3.79.0",
+    "sharp": "^0.32.6",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
+    "tailwindcss": "^3.4.17",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "eslint-config-next": "15.4.11"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

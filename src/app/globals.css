@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0B0B0B;
+  --card: #141414;
+  --border: rgba(255,255,255,0.08);
+  --text: #F0F0F0;
+  --muted: #888888;
+  --accent: #C8A97E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* Reveal animation — applied via JS intersection observer */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project card hover */
+.project-card .overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.project-card:hover .overlay {
+  opacity: 1;
+}
+.project-card .thumb {
+  transition: transform 0.6s ease;
+}
+.project-card:hover .thumb {
+  transform: scale(1.04);
+}
+
+/* Nav link hover */
+.nav-link::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Marquee strip */
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Rich text styles */
+.prose-dark h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text); }
+.prose-dark h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+.prose-dark p { color: var(--muted); line-height: 1.8; margin-bottom: 1.2rem; }
+.prose-dark ul { color: var(--muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose-dark li { margin-bottom: 0.4rem; line-height: 1.7; }
